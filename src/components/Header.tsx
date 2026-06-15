@@ -3,7 +3,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import ThemeToggle from './ThemeToggle';
+import dynamic from 'next/dynamic';
+
+const ThemeToggle = dynamic(() => import('./ThemeToggle'), { ssr: false });
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -19,7 +21,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="absolute inset-0 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-slate-200/50 dark:border-white/10" />
-      <nav className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navegación principal">
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
@@ -38,7 +40,7 @@ export default function Header() {
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? 'bg-purple-500/10 text-purple-600 dark:text-purple-400'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
                   }`}
                 >
                   {link.label}
@@ -53,9 +55,9 @@ export default function Header() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 backdrop-blur border border-white/20 dark:border-white/10"
-            aria-label="Menú"
+            aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
           >
-            <div className="w-5 h-4 flex flex-col justify-between">
+            <div className="w-5 h-4 flex flex-col justify-between" aria-hidden="true">
               <span className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
               <span className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
               <span className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
@@ -64,7 +66,11 @@ export default function Header() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden absolute left-4 right-4 top-20 p-4 rounded-2xl bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border border-slate-200/50 dark:border-white/10 shadow-xl animate-in slide-in-from-top-2">
+          <div
+            className="md:hidden absolute left-4 right-4 top-20 p-4 rounded-2xl bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border border-slate-200/50 dark:border-white/10 shadow-xl"
+            role="dialog"
+            aria-label="Menú de navegación"
+          >
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
@@ -76,7 +82,7 @@ export default function Header() {
                     className={`px-4 py-3 rounded-lg text-sm font-medium transition-all ${
                       isActive
                         ? 'bg-purple-500/10 text-purple-600 dark:text-purple-400'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5'
+                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5'
                     }`}
                   >
                     {link.label}

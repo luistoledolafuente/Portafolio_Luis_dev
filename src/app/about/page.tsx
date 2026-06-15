@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     title: `Sobre Mí | ${personalInfo.name}`,
     description: `Conoce más sobre ${personalInfo.name}, ${personalInfo.title}.`,
   },
+  alternates: {
+    canonical: `${personalInfo.siteUrl}/about`,
+  },
 };
 
 export default function AboutPage() {
@@ -42,13 +45,13 @@ export default function AboutPage() {
               </span>
             </h1>
 
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
               Soy un desarrollador apasionado por crear experiencias web excepcionales. 
               Con experiencia en tecnologías modernas como React, Next.js y Node.js, 
               me especializo en construir aplicaciones web rápidas, accesibles y optimizadas para SEO.
             </p>
 
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
               Me encanta transformar ideas en productos digitales que marquen la diferencia. 
               Cada proyecto es una oportunidad para aprender y superar los límites de lo que es posible en la web.
             </p>
@@ -66,7 +69,7 @@ export default function AboutPage() {
                   <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
                     {stat.value}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-500 mt-1">{stat.label}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>

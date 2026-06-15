@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { personalInfo, projects } from "@/lib/data";
 import ProjectCard from "@/components/ProjectCard";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: personalInfo.siteUrl,
+  },
+};
 
 export default function Home() {
   const featuredProjects = projects.filter((p) => p.featured);
@@ -9,7 +16,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 dark:from-slate-900 dark:via-purple-950 dark:to-slate-900 bg-[length:200%_200%] animate-gradient" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(168,85,247,0.15),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(236,72,153,0.1),transparent_50%)]" />
 
@@ -69,7 +76,7 @@ export default function Home() {
                 Destacados
               </span>
             </h2>
-            <p className="mt-3 text-slate-600 dark:text-slate-400">
+            <p className="mt-3 text-slate-600 dark:text-slate-300">
               Una muestra de mi trabajo más reciente
             </p>
           </div>
@@ -86,7 +93,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium text-purple-600 dark:text-purple-400 border border-purple-500/20 hover:bg-purple-500/5 transition-all"
             >
               Ver todos los proyectos
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>

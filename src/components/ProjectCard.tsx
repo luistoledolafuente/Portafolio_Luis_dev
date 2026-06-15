@@ -11,6 +11,7 @@ export default function ProjectCard({ project }: Props) {
     <Link
       href={`/projects/${project.slug}`}
       className="group block rounded-2xl bg-white/5 backdrop-blur border border-slate-200/50 dark:border-white/10 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/30"
+      aria-label={`Ver proyecto: ${project.title}`}
     >
       <div className="relative h-48 overflow-hidden">
         <Image
@@ -27,7 +28,7 @@ export default function ProjectCard({ project }: Props) {
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
           {project.title}
         </h3>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
+        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 line-clamp-2">
           {project.description}
         </p>
         <div className="mt-4 flex flex-wrap gap-2">

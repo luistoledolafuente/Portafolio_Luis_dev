@@ -11,7 +11,7 @@ export default function ThemeToggle() {
       className="relative w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/15 transition-all duration-300"
       aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
     >
-      <div className="relative w-5 h-5">
+      <div className="relative w-5 h-5" aria-hidden="true">
         <span
           className={`absolute inset-0 transition-all duration-500 ${
             theme === 'dark' ? 'opacity-100 rotate-0' : 'opacity-0 rotate-90'

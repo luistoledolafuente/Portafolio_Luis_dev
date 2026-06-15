@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { projects } from "@/lib/data";
-import { personalInfo } from "@/lib/data";
+import { projects, personalInfo } from "@/lib/data";
 import ProjectCard from "@/components/ProjectCard";
 
 export const metadata: Metadata = {
@@ -9,6 +8,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Proyectos | ${personalInfo.name}`,
     description: `Explora los proyectos de ${personalInfo.name}. Desarrollo web, aplicaciones full stack y más.`,
+  },
+  alternates: {
+    canonical: `${personalInfo.siteUrl}/projects`,
   },
 };
 
@@ -25,7 +27,7 @@ export default function ProjectsPage() {
               Proyectos
             </span>
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Proyectos en los que he trabajado, desde aplicaciones web completas hasta herramientas interactivas.
           </p>
         </div>

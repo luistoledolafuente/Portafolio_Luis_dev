@@ -49,9 +49,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: personalInfo.siteUrl,
-  },
 };
 
 export default function RootLayout({
