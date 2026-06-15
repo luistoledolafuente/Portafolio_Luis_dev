@@ -39,6 +39,6 @@ export const personalInfo: PersonalInfo = {
   email: 'luis@email.com',
   github: 'https://github.com/luistoledolafuente',
   linkedin: 'https://linkedin.com/in/luistoledolafuente',
-  siteUrl: 'https://luis-portfolio.vercel.app',
+  siteUrl: 'https://my-portfolio-plum-zeta-62.vercel.app',
   avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0',
 };
