@@ -10,7 +10,7 @@ export default function ProjectCard({ project }: Props) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group block rounded-2xl bg-white/5 backdrop-blur border border-slate-200/50 dark:border-white/10 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/30"
+      className="group block rounded-2xl bg-white/5 backdrop-blur border border-slate-200/50 dark:border-white/10 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/30"
       aria-label={`Ver proyecto: ${project.title}`}
     >
       <div className="relative h-48 overflow-hidden">
@@ -21,6 +21,7 @@ export default function ProjectCard({ project }: Props) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>

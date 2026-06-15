@@ -36,13 +36,13 @@ export default function ContactPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          <div className="animate-fade-in-up">
+          <div>
             <div className="p-8 rounded-2xl bg-white/50 dark:bg-white/5 backdrop-blur border border-slate-200/50 dark:border-white/10">
               <ContactForm />
             </div>
           </div>
 
-          <div className="space-y-6 animate-fade-in-up animate-delay-200">
+          <div className="space-y-6">
             <div className="p-6 rounded-2xl bg-white/50 dark:bg-white/5 backdrop-blur border border-slate-200/50 dark:border-white/10">
               <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
                 Información de Contacto

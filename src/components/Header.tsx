@@ -3,9 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import dynamic from 'next/dynamic';
-
-const ThemeToggle = dynamic(() => import('./ThemeToggle'), { ssr: false });
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -25,7 +23,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent hover:from-purple-500 hover:to-pink-400 transition-all"
+            className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent hover:from-purple-500 hover:to-pink-400"
           >
             LuisDev
           </Link>
@@ -37,7 +35,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                     isActive
                       ? 'bg-purple-500/10 text-purple-600 dark:text-purple-400'
                       : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
@@ -58,9 +56,9 @@ export default function Header() {
             aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
           >
             <div className="w-5 h-4 flex flex-col justify-between" aria-hidden="true">
-              <span className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-              <span className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-              <span className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+              <span className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+              <span className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+              <span className={`block h-0.5 w-full bg-slate-700 dark:bg-slate-300 transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
             </div>
           </button>
         </div>
@@ -79,7 +77,7 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                       isActive
                         ? 'bg-purple-500/10 text-purple-600 dark:text-purple-400'
                         : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5'

@@ -21,9 +21,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(236,72,153,0.1),transparent_50%)]" />
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <div className="animate-fade-in-up">
+          <div>
             <div className="relative w-28 h-28 mx-auto mb-8">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-spin" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500" />
               <div className="absolute inset-1 rounded-full overflow-hidden bg-white dark:bg-slate-900">
                 <Image
                   src={personalInfo.avatar}

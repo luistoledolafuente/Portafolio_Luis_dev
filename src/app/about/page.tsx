@@ -21,7 +21,7 @@ export default function AboutPage() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative animate-fade-in-up">
+          <div className="relative">
             <div className="relative w-full aspect-[3/4] max-w-md mx-auto lg:mx-0">
               <div className="absolute -inset-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl opacity-20 blur-xl" />
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
@@ -37,7 +37,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="animate-fade-in-up animate-delay-200">
+          <div>
             <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
               Sobre{" "}
               <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">

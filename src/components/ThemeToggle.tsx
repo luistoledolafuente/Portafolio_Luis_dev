@@ -8,13 +8,14 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/15 transition-all duration-300"
+      className="relative w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/15 transition-colors duration-300"
       aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
+      type="button"
     >
       <div className="relative w-5 h-5" aria-hidden="true">
         <span
-          className={`absolute inset-0 transition-all duration-500 ${
-            theme === 'dark' ? 'opacity-100 rotate-0' : 'opacity-0 rotate-90'
+          className={`absolute inset-0 transition-opacity duration-500 ${
+            theme === 'dark' ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -22,8 +23,8 @@ export default function ThemeToggle() {
           </svg>
         </span>
         <span
-          className={`absolute inset-0 transition-all duration-500 ${
-            theme === 'light' ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'
+          className={`absolute inset-0 transition-opacity duration-500 ${
+            theme === 'light' ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <svg className="w-5 h-5 text-indigo-300" fill="currentColor" viewBox="0 0 20 20">
